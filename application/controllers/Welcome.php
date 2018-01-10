@@ -20,6 +20,9 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+	    $data = [
+	        'tel' => '027-44448888',
+        ];
+		$this->load->view('web/index', $data);
 	}
 }
