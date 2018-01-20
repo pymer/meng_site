@@ -1,16 +1,12 @@
-<!DOCTYPE html>
+<!DOCUMENT html>
 <html lang="zh">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
     <title>客友垂钓</title>
-    <link href="http://verify.djitm.com/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="./public/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <meta name="viewport" content="width=device-width">
-    <link href="./public/site.css" rel="stylesheet">
-
-    <script src="./public/modernizr-2.6.2.js"></script>
-    <link href="./public/check.css" rel="stylesheet">
+    <link href="./public/css/site.css" rel="stylesheet">
+    <link href="./public/css/check.css" rel="stylesheet">
 
 </head>
 <body>
@@ -21,8 +17,7 @@
         </div>
     </div>
 </header>
-<div id="body">
-
+<div id="app">
     <section class="featured">
         <div class="content-wrapper">
             <hgroup class="title">
@@ -39,12 +34,14 @@
 
         <h3>输入产品序列号：</h3>
         <div>
-            <input type="text" name="serial" id="txtSerial">
+            <input type="text" name="serial" id="txtSerial" v-model="serial">
         </div>
         <div>
-            <button id="btnCheck" type="button">查询</button>
+            <button id="btnCheck" type="button" @click="search">查询</button>
         </div>
-        <div id="info"></div>
+        <div id="info" v-if="message">
+            <span class="red-text">{{message}}</span>
+        </div>
 
     </section>
 </div>
@@ -59,11 +56,23 @@
     </div>
 </footer>
 
-<script src="./public/jquery-1.8.2.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{message:'', serial:''},
+        methods:{
+            search:function () {
+                var that = this;
+                axios.get('/welcome/search').then(function(data){
+                    that.message = data.data.msg;
+                });
+            }
+        }
 
-
-<script src="./public/check.js"></script>
-
+    });
+</script>
 
 </body>
 </html>

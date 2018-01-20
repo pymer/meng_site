@@ -93,4 +93,37 @@ class CI_Controller {
 		return self::$instance;
 	}
 
+    /**
+     * 正确返回值
+     * @param $data
+     */
+	public function successResponse($data)
+    {
+        $response = [
+            'status' => 1,
+            'code' => 200,
+            'data' => $data,
+            'msg' => '',
+        ];
+        echo json_encode($response);
+        exit;
+    }
+
+    /***
+     * 错误返回值
+     * @param $code
+     * @param $msg
+     */
+    public function errorResponse(int $code, string $msg)
+    {
+        $response = [
+            'status' => 0,
+            'code' => $code,
+            'data' => [],
+            'msg' => $msg,
+        ];
+        echo json_encode($response);
+        exit;
+    }
+
 }

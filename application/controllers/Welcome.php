@@ -25,4 +25,9 @@ class Welcome extends CI_Controller {
         ];
 		$this->load->view('web/index', $data);
 	}
+
+	public function search()
+    {
+        $this->errorResponse(0, '尊敬的钓友您好，暂未显示，如有问题，请致电02751501988咨询。');
+    }
 }
