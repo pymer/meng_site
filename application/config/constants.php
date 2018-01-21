@@ -83,3 +83,9 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+
+//dxxue const
+defined('WEB_URL') OR define('WEB_URL', $_SERVER['HTTP_HOST']); // web http host
+defined('HTTP_PRO') OR define('HTTP_PRO', 'http://'); // http协议
+defined('WEB_ADMIN_TPL') OR define('WEB_ADMIN_TPL', HTTP_PRO.WEB_URL.'/application/views/admin/'); // web admin html js css dir
