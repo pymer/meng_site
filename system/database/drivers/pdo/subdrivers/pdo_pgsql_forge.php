@@ -203,7 +203,7 @@ class CI_DB_pdo_pgsql_forge extends CI_DB_pdo_forge {
 		{
 			$field['type'] = ($field['type'] === 'NUMERIC')
 				? 'BIGSERIAL'
-				: 'SERIAL';
+				: 'SerialModel';
 		}
 	}
 

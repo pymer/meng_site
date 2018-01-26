@@ -89,3 +89,9 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 defined('WEB_URL') OR define('WEB_URL', $_SERVER['HTTP_HOST']); // web http host
 defined('HTTP_PRO') OR define('HTTP_PRO', 'http://'); // http协议
 defined('WEB_ADMIN_TPL') OR define('WEB_ADMIN_TPL', HTTP_PRO.WEB_URL.'/application/views/admin/'); // web admin html js css dir
+defined('WEB_PUBLIC_TPL') OR define('WEB_PUBLIC_TPL', HTTP_PRO.WEB_URL.'/public/'); // web静态文件
+
+//定义请求数据的方法
+define('IS_POST', strtolower($_SERVER["REQUEST_METHOD"]) == 'post');//判断是否是post方法
+define('IS_GET', strtolower($_SERVER["REQUEST_METHOD"]) == 'get');//判断是否是get方法
+define('IS_AJAX', isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');//判断是否是ajax请求

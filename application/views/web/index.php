@@ -3,10 +3,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>客友垂钓</title>
-    <link href="./public/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="<?php echo WEB_PUBLIC_TPL;?>/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <meta name="viewport" content="width=device-width">
-    <link href="./public/css/site.css" rel="stylesheet">
-    <link href="./public/css/check.css" rel="stylesheet">
+    <link href="<?php echo WEB_PUBLIC_TPL; ?>/css/site.css" rel="stylesheet">
+    <link href="<?php echo WEB_PUBLIC_TPL; ?>/css/check.css" rel="stylesheet">
 
 </head>
 <body>

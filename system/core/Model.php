@@ -48,6 +48,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class CI_Model {
 
+    /***
+     * @var \CI_DB_query_builder;
+     */
+    public $db;
+
 	/**
 	 * Class constructor
 	 *
@@ -55,7 +60,7 @@ class CI_Model {
 	 */
 	public function __construct()
 	{
-		log_message('info', 'Model Class Initialized');
+        $this->load->database();
 	}
 
 	// --------------------------------------------------------------------
@@ -76,5 +81,41 @@ class CI_Model {
 		//	most likely a typo in your model code.
 		return get_instance()->$key;
 	}
+
+    /**
+     * 正确返回值
+     *
+     * @param $data
+     */
+    public function successResponse($data)
+    {
+        $response = [
+            'status' => 1,
+            'code' => 200,
+            'data' => $data,
+            'msg' => '',
+        ];
+        echo json_encode($response);
+        exit;
+    }
+
+    /***
+     * 错误返回值
+     *
+     * @param $code
+     * @param $msg
+     */
+    public function errorResponse(int $code, string $msg)
+    {
+        $response = [
+            'status' => 0,
+            'code' => $code,
+            'data' => [],
+            'msg' => $msg,
+        ];
+        echo json_encode($response);
+        exit;
+    }
+
 
 }

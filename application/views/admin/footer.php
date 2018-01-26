@@ -61,5 +61,7 @@
 <script src="<?php echo WEB_ADMIN_TPL; ?>dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo WEB_ADMIN_TPL; ?>dist/js/demo.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </body>
 </html>
