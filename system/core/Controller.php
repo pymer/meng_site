@@ -97,7 +97,7 @@ class CI_Controller {
      * 正确返回值
      * @param $data
      */
-	public function successResponse($data)
+	public function successResponse($data = 'success')
     {
         $response = [
             'status' => 1,
@@ -114,7 +114,7 @@ class CI_Controller {
      * @param $code
      * @param $msg
      */
-    public function errorResponse(int $code, string $msg)
+    public function errorResponse(int $code = 0, string $msg = 'error!!!')
     {
         $response = [
             'status' => 0,

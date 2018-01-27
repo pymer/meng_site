@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="<?php echo WEB_ADMIN_TPL; ?>bower_components/Ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="<?php echo WEB_ADMIN_TPL; ?>dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="<?php echo WEB_ADMIN_TPL; ?>plugins/iCheck/square/blue.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/layer/2.3/skin/layer.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -54,6 +55,7 @@
 <script src="<?php echo WEB_ADMIN_TPL; ?>plugins/iCheck/icheck.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/layer/2.3/layer.js"></script>
 <script>
     var vm = new Vue({
         el : '#login-app',
@@ -69,7 +71,12 @@
                     dataType: 'json',
                     params: {mobile: this.mobile, password: this.password},
                 }).then(function (response) {
-                    console.log(response.data);
+                    var data = response.data;
+                    if (data.status){
+                        layer.msg('登录成功', {icon:6, time:1000}, function () {
+                            location.href="/m_admin/index";
+                        });
+                    }
                 });
 
             }

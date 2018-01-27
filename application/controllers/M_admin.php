@@ -17,7 +17,8 @@ class M_admin extends M_Controller
      * @var array
      */
     public $_no_need_auth = [
-        'm_admin/login'
+        'm_admin/login',
+        'm_admin/index'
     ];
 
     public function __construct()
@@ -32,11 +33,6 @@ class M_admin extends M_Controller
     public function index()
     {
 
-        $this->load->model('serial_model');
-        $res = $this->serial_model->getList();
-        echo '<pre>';
-        print_r($res);
-        exit;
         $this->load->view('admin/index.php');
 
 
@@ -47,12 +43,14 @@ class M_admin extends M_Controller
      */
     public function login()
     {
-        if (IS_POST){
-            $mobile = $this->input->get('mobile', true);
-            $password = $this->input->get('password', true);
+        $mobile = $this->input->get('mobile', true);
+        $password = $this->input->get('password', true);
+        if ($mobile && $password){
             $res = $this->user_model->verifyMobilePassword($mobile, $password);
+            if ($res){
+                $this->successResponse();
+            }
         }
-
         $this->load->view('admin/login.php');
     }
 }

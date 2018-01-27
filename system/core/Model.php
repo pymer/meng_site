@@ -48,10 +48,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class CI_Model {
 
-    /***
-     * @var \CI_DB_query_builder;
-     */
-    public $db;
 
 	/**
 	 * Class constructor
@@ -60,7 +56,8 @@ class CI_Model {
 	 */
 	public function __construct()
 	{
-        $this->load->database();
+	    //已经自动加载了，不需要再加载
+        //$this->load->database();
 	}
 
 	// --------------------------------------------------------------------
